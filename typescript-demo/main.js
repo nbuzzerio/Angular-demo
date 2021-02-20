@@ -1,27 +1,28 @@
-var a;
-var b;
-var c;
-var d;
-var e = [1, 2, 3];
-var f = [1, false, 'true', true];
-var Color;
-(function (Color) {
-    Color[Color["Red"] = 0] = "Red";
-    Color[Color["Green"] = 1] = "Green";
-    Color[Color["Blue"] = 2] = "Blue";
-})(Color || (Color = {}));
-; //Will automatically give those numbers in order but best practice to explicitly state in case additions are needed later
-var backgroundColor = Color.Red;
-//let vs var
-function iterateWithLet() {
-    for (var i = 0; i < 5; i++) {
-        console.log(i);
+var message;
+message = 'abcdefg';
+//Type Assertions
+var assertion1 = message.endsWith('g');
+var assertion2 = message.endsWith('g');
+var drawShape = function (Coordinates) {
+    //...
+};
+drawShape({
+    x: 1,
+    y: 2,
+    z: 3
+});
+//Classes
+var Point = /** @class */ (function () {
+    function Point() {
     }
-    console.log('i is: ' + i); //let leaves the scope of the variable in the for loop code block
-}
-function iterateWithVar() {
-    for (var i = 0; i < 5; i++) {
-        console.log(i);
-    }
-    console.log('i is: ' + i); //var leaves the scope of the variable in the nearest function block
-}
+    Point.prototype.draw = function () {
+        console.log('X: ' + this.x + ' Y: ' + this.y);
+    };
+    Point.prototype.getDistance = function (another) {
+    };
+    return Point;
+}());
+var point = new Point();
+point.x = 1;
+point.y = 2;
+point.draw();

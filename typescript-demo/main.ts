@@ -1,29 +1,39 @@
-let a: number;
-let b: boolean;
-let c: string;
-let d: any;
-let e: number[] = [1, 2, 3];
-let f: any[] = [1, false, 'true', true];
+let message;
+message = 'abcdefg';
+//Type Assertions
+let assertion1 = (<string>message).endsWith('g');
+let assertion2 = (message as string).endsWith('g');
 
-enum Color {Red = 0, Green = 1, Blue = 2}; //Will automatically give those numbers in order but best practice to explicitly state in case additions are needed later
-let backgroundColor = Color.Red;
-
-
-
-
-//let vs var
-function iterateWithLet() {
-    for (let i = 0; i < 5; i++) {
-        console.log(i);
-    }
-
-    console.log('i is: ' + i) //let leaves the scope of the variable in the for loop code block
+//Interfaces
+interface Coordinates { //Pascal convention for interfaces
+    x: number, 
+    y: number, 
+    z: number
 }
 
-function iterateWithVar() {
-    for (var i = 0; i < 5; i++) {
-        console.log(i);
-    }
-
-    console.log('i is: ' + i) //var leaves the scope of the variable in the nearest function block
+let drawShape = ( Coordinates ) => {
+    //...
 }
+
+drawShape({
+    x: 1,
+    y: 2,
+    z: 3
+})
+
+
+//Classes
+class Point {
+    x: number;
+    y: number; 
+    
+    draw() {
+        console.log('X: ' + this.x + ' Y: ' + this.y);
+    }
+}
+
+//Object or and instance of a class
+let point = new Point();
+point.x = 1;
+point.y = 2;
+point.draw();
