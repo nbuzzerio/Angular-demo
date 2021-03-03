@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CoursesService } from './courses.service';
 
 @Component({
     selector: 'courses', //references css selectors --> <course> = "courses" | <dive class=courses> = ".courses" | <div id=courses> = "#courses"
@@ -16,5 +17,9 @@ import { Component } from '@angular/core';
 export class CoursesComponent {
     title = "List of Courses";
 
-    courses = ["course 1", "course 2", "course 3"];
+    courses;
+
+    constructor(service: CoursesService) {
+        this.courses = service.getCourses();
+    }
 }
